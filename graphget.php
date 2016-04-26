@@ -13,10 +13,10 @@ try
 	 $graphs = $api->graphGet();
 
     // print all graph IDs
-    foreach($graphs as $graph){
-        echo $graph->graphid." => ";
-        echo $graph->name."<br />";
-        echo "ITEMIDS ".$graph->itemids."<br />";
+    foreach($graphs as $key=>$val){
+        echo $key." => ";
+        //echo $val."<br />";
+        echo "<br />";
 	}
         
     /* ... do your stuff here ... */

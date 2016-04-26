@@ -10,13 +10,19 @@ try
     $api = new ZabbixApi('http://202.6.233.15/zabbix/api_jsonrpc.php', 'puji', 'pujicute2016');
 	echo "PadiNET Zabbix sample<br />";
 	
-	 $graphs = $api->graphGet();
+	 $graphs = $api->serviceget();
 
     // print all graph IDs
     foreach($graphs as $graph){
-        echo $graph->graphid." => ";
-        echo $graph->name."<br />";
-        echo "ITEMIDS ".$graph->itemids."<br />";
+		foreach($graph as $key=>$val){
+			if($key==="problems"){
+				echo "has problem ".count($val)." <br />";
+				foreach($val as $k=>$v){
+					echo $k." =>".$v."<br />";
+				}
+			}
+			echo $key . " and " . $val . "<br />";
+		}
 	}
         
     /* ... do your stuff here ... */

@@ -14,9 +14,12 @@ try
 
     // print all graph IDs
     foreach($graphs as $graph){
-        echo $graph->graphid." => ";
-        echo $graph->name."<br />";
-        echo "ITEMIDS ".$graph->itemids."<br />";
+		foreach($graph as $key=>$val){
+			echo $key . " and " . $val . "<br />";
+		}
+/*        echo "Graphids".$graph->graphids." => ";
+        echo "Getitemids".$graph->getitemids."<br />";
+        echo "ITEMIDS ".$graph->itemids."<br />";*/
 	}
         
     /* ... do your stuff here ... */
